@@ -14,7 +14,7 @@ class Agent(object):
         self.model = QNet(12).to(self.device)
         self.model.eval()
         try:
-            checkpoint = torch.load('checkpoint_400.pth', map_location=self.device, weights_only=True)
+            checkpoint = torch.load('checkpoint.pth', map_location=self.device, weights_only=True)
             self.model.load_state_dict(checkpoint['model_state_dict'])
         except Exception as e:
             print("Error loading checkpoint: ", e)
